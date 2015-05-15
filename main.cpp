@@ -1,5 +1,9 @@
-#include <iostream>
+#include "game.h"
+#include "gamestatestart.h"
 
 int main (int argc, char* args[]) {
-    std::cout << "Hello, world!" << std::endl;
+    Game game;
+    game.pushState(new GameStateStart(&game));
+    game.gameLoop();
+    return 0;
 }
