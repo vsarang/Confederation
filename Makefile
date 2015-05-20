@@ -8,7 +8,7 @@ SFML = -lsfml-graphics -lsfml-window -lsfml-system
 
 all: $(EXENAME)
 
-$(EXENAME): main.o game.o gamestatestart.o gamestateeditor.o texturemanager.o
+$(EXENAME): main.o game.o gamestatestart.o gamestateeditor.o texturemanager.o animationhandler.o
 	$(COMPILER) -o $@ $^ $(SFML)
 
 main.o: main.cpp game.o gamestatestart.o
@@ -27,6 +27,9 @@ gamestateeditor.o: gamestateeditor.cpp gamestateeditor.h gamestate.o game.o
 	$(COMPILER) $(COMPILER_OPTS) $<
 
 texturemanager.o: texturemanager.cpp texturemanager.h
+	$(COMPILER) $(COMPILER_OPTS) $<
+
+animationhandler.o: animationhandler.cpp animationhandler.h
 	$(COMPILER) $(COMPILER_OPTS) $<
 
 clean:
